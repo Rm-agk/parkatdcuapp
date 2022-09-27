@@ -1,1 +1,10 @@
 <h1>Welcome to ParkAtDCU</h1>
+
+<body>
+<ul>
+    {% for data, carparks in carparks_in_campus.items %}
+    <h3>{{ data }}</h3>
+    <li>{{carpark_in_campus.spaces}}</li>
+    {% endfor %}
+</ul>
+</body>
