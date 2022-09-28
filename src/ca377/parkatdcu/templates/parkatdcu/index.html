@@ -1,10 +1,19 @@
 <h1>Welcome to ParkAtDCU</h1>
 
 <body>
-<ul>
-    {% for data, carparks in carparks_in_campus.items %}
-    <h3>{{ data }}</h3>
-    <li>{{carpark_in_campus.spaces}}</li>
+
+    {% for campus in campus_name %}
+        <h3>{{ campus.name }}</h3>
+        <ul>
+            {% for carpark in carpark_name %}
+                {% if campus == carpark.campus_id %}
+                    <li>{{ carpark.name }}: {{ carpark.spaces }} spaces, {{carpark.disabled_spaces }} spaces for people with disabilities</li>
+                {% endif %}
+            {% endfor %}</ul>
     {% endfor %}
-</ul>
+{% if campus not in no_parking %}
+    No carparks found
+{% endif %}
+
+
 </body>
