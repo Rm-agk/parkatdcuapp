@@ -1,14 +1,5 @@
 <h1>Welcome to ParkAtDCU</h1>
-
-{% for campus,carparks in carparkinfo.items %}
-   <h3>{{ campus }}</h3>
-   {% if carparks %}
-   <ul>
-   {% for carpark in carparks %}
-      <li>{{carpark.name}}: {{carpark.spaces}} spaces, {{carpark.disabled_spaces}} spaces for people with disabilities</li>
-         {% endfor %}
-   </ul>
-   {% else %}
-      No carparks found
-   {% endif %}
-{% endfor %}
+<form action="{% url 'parkatdcu:carparks' %}" method="get">
+    Campus: <input type="text" name="campus"><br>
+    <input type="submit" value="Go">
+</form>
