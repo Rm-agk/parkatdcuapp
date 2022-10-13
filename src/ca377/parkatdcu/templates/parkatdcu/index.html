@@ -1,19 +1,36 @@
-<h1>Welcome to ParkAtDCU</h1>
 
 <body>
 
-    {% for campus in campus_name %}
-        <h3>{{ campus.name }}</h3>
-        <ul>
-            {% for carpark in carpark_name %}
-                {% if campus == carpark.campus_id %}
-                    <li>{{ carpark.name }}: {{ carpark.spaces }} spaces, {{carpark.disabled_spaces }} spaces for people with disabilities</li>
-                {% endif %}
-            {% endfor %}</ul>
-    {% endfor %}
-{% if campus not in no_parking %}
-    No carparks found
-{% endif %}
+<h1>Welcome to ParkAtDCU</h1>
 
+{% for campus in campus_name %}
+    <h2>{{campus.name}}</h2>
+    <ul>
+        {% for car in carpark_name %}
+            {% if campus == car.campus_id %}
+                <li>{{car.name}}: {{car.spaces}} spaces, {{car.disabled_spaces}} spaces for people with disabilities,
+
+                    {% for data in live_data %}
+                        {% if data.carpark_name == car.name %}
+                            {{ data.spaces_available }} spaces available
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if car in errors %}
+                        real time info not available
+                    {% endif %}
+
+
+                </li>
+
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+{% endfor %}
+
+{% if campus not in no_parking %}
+<p> No carparks found</p>
+{% endif %}
 
 </body>

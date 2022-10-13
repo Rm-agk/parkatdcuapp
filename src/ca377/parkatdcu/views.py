@@ -1,25 +1,30 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Campus,Carpark
+from urllib.request import urlopen
+import json
+import requests
 
-# Create your views here.
-
-'''def index(request):
-    campus_data = Campus.objects.all()
-    carparks_in_campus = Carpark.objects.all()
-    for Carpark in campus_data:
-        carparks = Carpark.objects.filter(campus_id = campus.campus_id)
-        carparks_in_campus[campus.name] = carparks
-    print(carparks_in_campus)'''
+from .models import Carpark,Campus
 
 def index(request):
     campus_name = Campus.objects.all()
     carpark_name = Carpark.objects.all()
     no_parking = Campus.objects.filter(carpark=None)
-    context = {
-        'campus_name': campus_name, 'carpark_name': carpark_name, 'no_parking': no_parking
-    }
-    # retrieve carpark information from the database
-    # add it to the context dictionary
+    errors = []
+    live_data = []
 
-    return render(request,"parkatdcu/index.html",context)
+    for carpark in carpark_name:
+        response = requests.get("http://mbezbradica.pythonanywhere.com/carparks/" + carpark.name)
+        if response.ok:
+            live_data.append(json.loads(response.text))
+        else:
+            errors.append(carpark)
+
+    context = {"carpark_name": carpark_name,
+               "campus_name": campus_name,
+               "no_parking": no_parking,
+               "live_data": live_data,
+               "errors": errors
+               }
+
+    return render(request, "parkatdcu/index.html", context)
