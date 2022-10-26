@@ -1,0 +1,11 @@
+<h2>{{ campus }}</h2>
+<ul>
+  {% for carpark in carparks %}
+    <li>{{carpark.name}}: {{carpark.spaces}} spaces, {{carpark.disabled_spaces}} spaces for people with disabilities
+      <br>Spaces available:  {{ carpark.spaces_available }}<br><br>
+	  </li>
+  {% empty %}
+  <p> No carparks found</p>
+  {% endfor %}
+
+</ul>
