@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main_content %}
+<head>
+    <link href="{% static 'css/image.css' %}" rel="stylesheet">
+</head>
+<div style="font-family:century;">
+<ul style="text-align:center" >
+<h1>
+Bus stops of DCU
+</h1>
+<li>
+DCU Helix, stop 7571
+Bus stop
+Dublin Bus
+</li>
+<li>
+DCU Collins Avenue, stop 1644
+Bus stop
+Bus Éireann
+</li>
+<li>
+DCU Collins Avenue, stop 1646
+Bus stop
+Dublin Bus</li>
+<li>
+Whitehall (Dublin City), Collins Avenue West
+Bus stop
+Dublin Bus
+</li>
+<li>
+DCU Ballymun Road, stop 37
+Bus stop
+Dublin Bus
+</li>
+<li>
+DCU, stop 4680
+Bus stop
+Dublin Bus </li>
+<li>
+Albert College Court, stop 90
+Bus stop
+Dublin Bus
+</li>
+<li>
+Albert College Park, stop 29
+Bus stop
+Dublin Bus </li>
+<li>
+Ballymun Road Church, stop 115
+Bus stop
+Dublin Bus </li>
+<li>
+St Aidan's School, stop 1643
+Bus stop
+Dublin Bus
+</li>
+<br>
+<i>Link to Real time information below!</i>
+</li>
+</ul>
+
+<p align="center" >
+<a href="http://www.dublinbus.ie/en/RTPI/Sources-of-Real-Time-Information/?searchtype=address&searchquery=kylemore">
+  <img alt="Dublin Bus real time info" src="{% static 'images/Dublin-Bus-logo (1).jpg' %}"width=150" height="70"
+</a> </p>
+<div id="map-container-google-1" class="iframe" style="height: 50%"> <!-- Google Map code-->
+ <p align="center" > <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19036.86330977172!2d-6.289970774468677!3d53.38606455753372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e0e371bc70b%3A0x73ae7c4e8d7a7f35!2sDCU%20Ballymun%20Road%2C%20stop%2037!5e0!3m2!1sen!2sie!4v1637865561829!5m2!1sen!2sie" width="600" height="450"  style="border:0;" align="center"  loading="lazy"></iframe>
+ </p>
+</div>
+</div>
+</div>
+
+{% endblock main_content %}

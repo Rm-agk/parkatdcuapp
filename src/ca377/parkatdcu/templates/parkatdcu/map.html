@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main_content %}
+
+<div style="text-align:center">
+<h1> Maps of each Campus
+   <a style="color:black" href="https://www.dcu.ie/campus-maps#bootstrap0">
+    <img alt="DCU Maps" src="{% static 'images/campus map1.png' %}" width="40" height="40" </a>
+  </h1>
+</div>
+<head>
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+</head>
+<!--Photo with embedded link to DCU campus maps-->
+<div class="image123">
+  <div style="float:left;margin-right:5px;">
+      <img src="{% static 'images/glasnevin_campus_2019-01.jpg' %}" height="50%" width="100%"  />
+      <p style="text-align:center;">Glasnevin Campus</p>
+  </div>
+  <div style="float:right;margin-right:5px;">
+      <img class="middle-img" src="{% static 'images/dcu_st_pats_2019-01.jpg' %}" height="50%" width="100%" />
+      <p style="text-align:center;">St Pats Campus</p>
+  </div>
+</div>
+<div style="float:none;margin-right:5px">
+  <img src="{% static 'images/dcu_all_hallows_2019-01.jpg' %}" height="50%" width="30%" />
+  <p style="text-align:center;">All Hallows Campus </p>
+</div>
+<br><br>
+<!--Open book animation with campus Descriptions-->
+<div class="container">
+        <div class="car">
+          <div class="imgbox">
+            <img src="{% static 'images/glasnevin.jpg' %}" width="300px" height="400px">
+          </div>
+          <div class="details">
+            <h2> Glasnevin</h2>
+            <br>
+            <p> Glasnevin is DCU's largest campus and is home to DCU Business School, the Faculty of Science and Health, the Faculty of Engineering and Computing, and parts of the Faculty of Humanities and Social Science such as the School of Communications and the School of Applied Language & Intercultural Studies (SALIS).
+            </p>
+          </div>
+        </div>
+
+
+        <div class="car">
+          <div class="imgbox">
+            <img src="{% static 'images/all_hallows.jpg' %}" width="300px" height="400px">
+          </div>
+          <div class="details">
+            <h2>All Hallows</h2>
+            <br>
+            <p>Dublin City University completed the purchase of the All Hallows campus in April 2016. The campus is used for office space for staff, lectures and student accommodation. Although the campus is in active use by the University during the academic year, Conference and Accommodation facilities are available during the Summer months, when many of the All Hallows legacy activities will take place. On-site catering for small to large groups is provided on campus.
+              </p>
+          </div>
+        </div>
+
+    <div class="car">
+          <div class="imgbox">
+            <img src="{% static 'images/St.pats.png' %}" width="300px" height="400px">
+          </div>
+          <div class="details">
+            <h2>St. Pats</h2>
+            <br>
+            <p>DCU St. Patrick's Campus is a teacher training campus located 2.5km from Dublin City University, Glasnevin Campus. The campus has excellent and modern facilities including library, chapel, computer laboratory, WiFi and a sport centre complex.</p>
+          </div>
+        </div>
+
+
+      </div>
+
+
+{% endblock main_content %}

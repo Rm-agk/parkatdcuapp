@@ -1,7 +1,87 @@
+{% extends "base.html" %}
+{% load static %} #homepage
+{% block main_content %}
+<img src="{% static 'images/dcu-campus.jpg' %}" alt="logo" style="width:100%" height="50%">
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+<br><br>
+<div style="text-align:center">
+
 
 <h1>Welcome to ParkAtDCU</h1>
+    <br>
+    <p>Please enter a campus in searchbar above</p>
+    <p>The available campuses are</p>
+    <p>"Glasnevin"   "All Hallows"   "St. Pats"</p>
 
-<form action="{% url 'parkatdcu:carparks' %}" method="get">
-    Campus: <input type="text" name="campus"><br>
-    <input type="submit" value="Go">
-</form>
+<br>
+{% for campus,carparks in carparkinfo.items %}
+   <h3>{{ campus }}</h3>
+   {% if carparks %}
+   <ul>
+   {% for carpark in carparks %}
+      <li>{{carpark.name}}: {{carpark.spaces}} spaces, {{carpark.disabled_spaces}} spaces for people with disabilities, {{ carpark.available_spaces }}</li>
+         {% endfor %}
+   </ul>
+   {% else %}
+      No carparks found
+   {% endif %}
+{% endfor %}
+<div style="text-align:center">
+   <br>
+   <br>
+    <br>
+   <br>
+   <br>
+    <!--Social Media Section-->
+   <section id="socialmedia">
+        <h1 class="headings">Social Media Links</h1>
+        <div class="row">
+            <div class="box">
+                <img src="{% static "images/black-and-white-twitter-logo.png" %}" alt="">
+                <a href="https://twitter.com/DCU?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank">
+                <h2 class="headings1">Twitter</h2></a>
+            </div>
+            <div class="box">
+                <img src="{% static "images/facebook.jpg" %}" alt="">
+                <a href="https://www.facebook.com/DCU/" target="_blank">
+                <h2 class="headings1">Facebook</h2></a>
+            </div>
+            <div class="box">
+                <img src="{% static "images/tiktok-logo.png" %}" alt="">
+                <a href="https://www.tiktok.com/@dublincityuniversity?lang=en" target="_blank">
+                <h2 class="headings1">Tiktok</h2></a>
+            </div>
+        </div>
+
+    </section>
+    <!--Footer with same look DCU-->
+<footer class="footer">
+    <div class="block">
+        <div class="rows">
+            <div class ="footer-col">
+                <ul>
+                    <li><a href="https://www.dcu.ie/iss/student-my-page"> Student Apps</a></li>
+                    <li><a href="https://www.dcu.ie/iss/staff-my-page"> Staff Apps</a></li>
+                    <li><a href="https://loop.dcu.ie/login/index.php"> Loop</a></li>
+                    <li><a href="https://www.dcu.ie/disclaimer"> Disclaimer</a></li>
+                    </ul>
+            </div>
+            <div class="footer-col">
+                <ul>
+                    <li><a href="https://mail.google.com/mail/u/1/#inbox"> Student Email</a></li>
+                    <li><a href="https://www.google.com/a/dcu.ie/acs"> Staff Email</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <ul>
+                    <li><a href="https://www.dcu.ie/iss/policies-privacy-and-cookies-statement-information-systems-services"> Privacy and Cookies</a></li>
+                    <li><a href="https://www.dcu.ie/digitalcomms/accessibility-statement"> Accessibility Statement</a></li>
+                    <li><a href="https://www.dcu.ie/contact-us"> Contact Us</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+{% endblock main_content %}

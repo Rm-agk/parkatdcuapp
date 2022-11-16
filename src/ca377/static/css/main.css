@@ -1,0 +1,224 @@
+h1 {
+    color: rgb(0, 0, 0);
+    font-family: century;
+    font-size: 2rem;
+}
+p {
+    font-family: century;
+}
+
+/* DCU logo in navbar Section */
+.logo{
+    position: absolute;
+    height: 66px;
+    left: 0px;
+    width: 250px;
+}
+/* Navbar Section */
+nav{
+    overflow: hidden;
+    background: #d9dcdf;
+    line-height: 30px;
+}
+
+nav a{
+    float: right;
+    display: block;
+    width: 100px;
+    text-align: center;
+    padding: 18px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #213958;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+nav a:hover{
+    background: #142944;
+    color: white;
+    box-shadow: 0 0 10px white;
+    text-decoration: underline;
+
+}
+nav .active{
+    background: #fff;
+}
+nav input[type=text]{
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 16px;
+    margin-right: 100px;
+    font-size: 17px;
+    border-radius: 10px;
+    outline: none;
+}
+/* Headings */
+.headings {
+    font-family: century;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 40px 0px;
+}
+.headings1 {
+    font-family: century;
+    font-size: 3rem;
+    text-align: center;
+    margin: 40px 0px;
+}
+
+  .imgContainer{
+    float:left;
+}
+/* Social Media section */
+
+#socialmedia{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+a:link {
+    text-decoration: none;
+  }
+.row{
+    display: flex;
+    justify-content: space-around; /* to add space around the rows*/
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 450px;
+    border: 1px solid black;
+    margin: 10px;
+    align-items: center;
+    text-align: justify;
+    padding: 10px;
+    border-radius: 15px;
+    background: linear-gradient(to top, rgb(0, 0, 0) 50%, white 50%);
+    background-size: 100% 200%;
+    transition: all .8s;
+    color: black;
+}
+.box:hover{
+    background-position: left bottom;
+    color: white;
+    border: none;
+    box-shadow: 0 0 20px rgb(0, 0, 0);
+
+}
+.box img{
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    padding: 10px;
+}
+/*Campus + Description Opening Book Animation*/
+.container{
+            max-width: 1000px;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+}
+
+.car{
+      position: relative;
+      margin: 20px 0;
+      width: 300px;
+      height: 400px;
+      background: #fff;
+      transform-style: preserve-3d;
+      transform: perspective(2000px);
+      transition: 1s;
+      box-shadow: inset 300px 0 50px rgba(0, 0, 0, .5);
+}
+
+.car:hover{  z-index: 1000;
+             transform: perspective(2000px) rotate(-10deg);
+             box-shadow: inset 20px 0 50px  rgba(0, 0, 0, .5);
+}
+
+.car:hover .imgbox{
+                     transform: rotateY(-135deg);
+}
+
+.car .imgbox{
+              position: relative;
+              width: 300px;
+              height: 400px;
+              border: 1px solid #000;
+              box-sizing: border-box;
+              transform-origin: left;
+              z-index: 1;
+              transition: 1s;
+}
+
+
+.car .imgbox .img{
+                   position: absolute;
+                   top: 0%;
+                   left: 0%;
+                   width: 300%;
+                   height: 400%;
+}
+
+.car .details{
+               position: absolute;
+               left: 0%;
+               top: 0%;
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+               font-family: century;
+
+}
+.car .details p{
+                font-family: century;
+}
+/* Footer */
+.block{
+    max-width: 1170px;
+    margin:auto;
+
+}
+.rows{
+    display: flex;
+    flex-wrap: wrap;
+}
+ul{
+    list-style: none;
+}
+.footer{
+    background-color: #142944;
+    padding: 20px 0;
+    height: 150px;
+    margin: 100px;
+}
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+.footer-col ul li a{
+    font-size: 17px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: #bbbbbb;
+    display: block;
+    transition: all 0.3 ease;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 8px;
+    text-decoration: underline;
+}

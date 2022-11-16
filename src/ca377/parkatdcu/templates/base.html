@@ -1,0 +1,19 @@
+{% load static %}
+<head>
+   <link href="{% static 'css/main.css' %}" rel="stylesheet">
+</head>
+<a href="{% url 'parkatdcu:index'%}"> <img src="{% static 'images/dcu_hompage_logo.jpg' %}" class=" logo" /></a>
+<!-- Navbar Section-->
+<nav>
+    <a href="{% url 'parkatdcu:index'%}">Carparks</a>
+    <a href="{% url 'parkatdcu:busstop'%}">Bus stops</a>
+    <a href="{% url 'parkatdcu:map'%}">Map</a>
+    <form action="{% url 'parkatdcu:carparks' %}" method="get">
+    <input type = "text" name="campus" placeholder="Search...">
+    <input type="submit" value="Go">
+    </form>
+    </ul>
+  </nav>
+
+  {% block main_content %}
+  {% endblock main_content %}

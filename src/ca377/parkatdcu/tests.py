@@ -137,7 +137,7 @@ class A3Tests(TestCase):
         self.setup()
         response = self.client.get(reverse('parkatdcu:carparks'),{'campus':'invalid campus'})
         self.assertEqual(response.status_code,200)
-        self.assertContains(response,'No such campus')
+        self.assertContains(response,'There is no such campus in DCU. Please copy one of the following campuses "Glasnevin", "All Hallows, "St. Pats" and navigate back into ParkAtDCU by pressing the back button on the top left of this page and paste the desired campus into the searchbar of ParkAtDCU')
 
     def test_retrieval_case(self):
         """ Test retrieval of carparks for a campus (case-insensitive) """

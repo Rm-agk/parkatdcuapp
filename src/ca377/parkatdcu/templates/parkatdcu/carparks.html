@@ -1,11 +1,52 @@
-<h2>{{ campus }}</h2>
+{% extends "base.html" %}
+{% load static %}
+{% block main_content %}
+
+<div style="font-family:century;">
+<ul style="text-align:center">
+
+<h2 style="text-transform: uppercase;"> {{ campus }}</h2>
+{% if carparks %}
 <ul>
   {% for carpark in carparks %}
     <li>{{carpark.name}}: {{carpark.spaces}} spaces, {{carpark.disabled_spaces}} spaces for people with disabilities
       <br>Spaces available:  {{ carpark.spaces_available }}<br><br>
 	  </li>
-  {% empty %}
-  <p> No carparks found</p>
   {% endfor %}
-
 </ul>
+{% else %}
+ <h1>No carparks found</h1>
+ {% endif %}
+ <div align="center">
+ <div id="container" style="width: 75%;">
+  <canvas id="pie-chart"></canvas>
+</div>
+<!-- Pie Chart Section-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script>
+
+  var config = {
+    type: 'pie',
+    data: {
+      datasets: [{
+        data: {{ data|safe }},
+        backgroundColor: [
+          '#F71B0C', '#02D31C', '#0135FA', '#FA01A3', '#FAF201', '#C101FA'
+        ],
+        label: 'Spaces Available'
+      }],
+      labels: {{ labels|safe }}
+    },
+    options: {
+      responsive: true
+    }
+  };
+
+  window.onload = function() {
+    var ctx = document.getElementById('pie-chart').getContext('2d');
+    window.myPie = new Chart(ctx, config);
+  };
+
+</script>
+</div>
+{% endblock main_content %}
